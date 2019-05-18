@@ -57,7 +57,7 @@
             <!-- Card Header -->
           </div>
 
-          <div class="card-body" id="table4">
+          <div class="card-body" id="table3">
 
 
           </div>
@@ -68,12 +68,21 @@
           </div>
 
           <div class="card-body">
-            <p id="table5"></p>
+            <p id="table4"></p>
 
           </div>
 
         </div>
       </div>
+      <div class="card">
+          <div class="card-header" style="font-size: 1.5em;">
+            Waiting List
+            <!-- Card Header -->
+          </div>
+          <div class="card-body" id="carddisplay">
+
+          </div>
+        </div>
     </div>
   </div>
 
@@ -94,6 +103,32 @@
             
             $(`#table${i}`).append(newText)
           }
+        }
+      }
+    });
+
+    $.get("/api/waiting", function (data) {
+      console.log(data);
+      var count = 1;
+      for (var i = 0; i < data.length; i++) {
+        var cardDiv = $(`<div class="card-header" style="font-size: 1.5em;"> Waitlist#${count}</div>`)
+        $('#carddisplay').append(cardDiv)
+        count ++
+        
+        console.log("its doing stuff");
+        let obj = data[i];
+        for (const key in obj) {
+          var cardBody = $(`<div class= card-body></div>`)
+          if (obj.hasOwnProperty(key)) {
+            const element = obj[key];
+            console.log(key + " " + element);
+        
+              
+              
+              cardBody.text(key + ": " + element)
+              $('#carddisplay').append(cardBody)
+              
+            }
         }
       }
     });
