@@ -36,7 +36,18 @@ var tables = [
 ];
 
 var waiting = [
- 
+  {
+    id: "obiwankenobi",
+    name: "Obi Wan Kenobi",
+    email: "jedimaster@aol.com",
+    phone: "553-463-2467",
+  },  
+  {
+    id: "obiwankenobi",
+    name: "Obi Wan Kenobi",
+    email: "jedimaster@aol.com",
+    phone: "553-463-2467",
+  }
 ];
 
 // Routes
